@@ -93,7 +93,6 @@ def get_item_element(entry: JsonEntry, json_checklist: JsonFile) -> ET.Element:
         if "response" in entry:
             action_text = ET.SubElement(item_element, "ActionText")
             action_text.text = entry["response"].replace("\n", "\\n")
-            item_element.append(action_text)
     elif item_element.get("type") == ItemType.Branch.value:
         uid = entry["text"].replace(' ', '-').lower()
         item_element.set("uid", uid)
